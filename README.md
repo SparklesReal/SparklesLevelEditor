@@ -1,5 +1,5 @@
 # LevelEditor
-A currently bad level editor made in C++. It was made for me to be able to create levels for upcoming games. I have big plans for this editor to make it stand out but as you can see in it's current state is barley useable but feel free to contribute anything helps even just grammer/spelling fixes. 
+A currently bad level editor made in C++. It was made for me to be able to create levels for upcoming games. I have big plans for this editor to make it stand out but as you can see in it's current state is barley useable but feel free to contribute, anything helps even just grammer/spelling fixes. 
 
 # Todo
 * A better readme.md
