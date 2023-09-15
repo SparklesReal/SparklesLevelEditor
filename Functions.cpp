@@ -9,10 +9,10 @@ Camera2D Functions::updateCamera(Camera2D camera) {
 		camera.zoom = 1.0f;
 	}
 
-	if (IsKeyDown(KEY_A))			camera.target = Vector2Add(camera.target, Vector2{ -50 / camera.zoom, 0 });
-	if (IsKeyDown(KEY_D))			camera.target = Vector2Add(camera.target, Vector2{ 50 / camera.zoom, 0 });
-	if (IsKeyDown(KEY_W))			camera.target = Vector2Add(camera.target, Vector2{ 0, -50 / camera.zoom });
-	if (IsKeyDown(KEY_S))			camera.target = Vector2Add(camera.target, Vector2{ 0, 50 / camera.zoom });
+	if (IsKeyDown(KEY_A))			camera.target = Vector2Add(camera.target, Vector2{ -50.0f / camera.zoom, 0.0f });
+	if (IsKeyDown(KEY_D))			camera.target = Vector2Add(camera.target, Vector2{ 50.0f / camera.zoom, 0.0f });
+	if (IsKeyDown(KEY_W))			camera.target = Vector2Add(camera.target, Vector2{ 0.0f, -50.0f / camera.zoom });
+	if (IsKeyDown(KEY_S))			camera.target = Vector2Add(camera.target, Vector2{ 0.0f, 50.0f / camera.zoom });
 	if (GetMouseWheelMove() > 0)	camera.zoom += 0.5f;
 	if (GetMouseWheelMove() < 0)	camera.zoom -= 0.5f;
 	return camera;
