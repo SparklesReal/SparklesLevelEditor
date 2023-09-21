@@ -8,7 +8,7 @@
 #include "Main.hpp"
 #include "Menus.hpp"
 
-Functions programFunctions;
+Functions programFunctions = Functions();
 Menus programMenus;
 Grid editorGrid = Grid();
 
@@ -26,11 +26,7 @@ int main() {
 
 	int textureSelected = 0;
 	
-	Camera2D camera = { 0 };
-	camera.target = Vector2{ float(GetScreenWidth()) / 2, float(GetScreenHeight()) / 2 };
-	camera.offset = Vector2{ float(GetScreenWidth()) / 2, float(GetScreenHeight()) / 2 };
-	camera.rotation = 0.0f;
-	camera.zoom = 1.0f;
+	Camera2D camera = programFunctions.createCamera();
 
 	programMenus.mainMenu();
 	programMenus.startMenu();
