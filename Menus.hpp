@@ -2,6 +2,6 @@
 
 class Menus {
 public:
-	void mainMenu();
-	void startMenu();
+	int mainMenu();
+	int startMenu();
 };

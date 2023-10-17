@@ -28,8 +28,12 @@ int main() {
 	
 	Camera2D camera = programFunctions.createCamera();
 
-	programMenus.mainMenu();
-	programMenus.startMenu();
+	if (programMenus.mainMenu()) {
+		return 0;
+	}
+	if (programMenus.startMenu()) {
+		return 0;
+	}
 
 	std::vector <gridCell> gridCells;
 	gridCells = programFunctions.createGrid(editorGrid.Size, editorGrid.Width, editorGrid.Height);

@@ -7,7 +7,7 @@
 
 Program programdata;
 
-void Menus::mainMenu() {
+int Menus::mainMenu() {
 	Camera2D camera = programFunctions.createCamera();
 
 	while (!WindowShouldClose()) {
@@ -20,16 +20,16 @@ void Menus::mainMenu() {
 		DrawRectangleRec(startButtonRect, RAYWHITE);
 		programFunctions.drawStringCenterRect("Start", 100, startButtonRect);
 		if (CheckCollisionPointRec(GetScreenToWorld2D(GetMousePosition(), camera), startButtonRect) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-			return;
+			return 0;
 		}
 
 
 		EndDrawing();
 	}
-	return;
+	return 1;
 }
 
-void Menus::startMenu() {
+int Menus::startMenu() {
 	Camera2D camera = programFunctions.createCamera();
 
 	std::string texutreSizeText = "Texture Size";
@@ -61,9 +61,9 @@ void Menus::startMenu() {
 		  
 		if (CheckCollisionPointRec(GetScreenToWorld2D(GetMousePosition(), camera), createButtonRect) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
 			editorGrid.Size = stoi(inputSize);
-			return;
+			return 0;
 		}
 		EndDrawing();
 	}
-	return;
+	return 1;
 }
