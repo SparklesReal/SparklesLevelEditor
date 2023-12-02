@@ -1,7 +1,17 @@
 #include <raylib.h>
 #include <raymath.h>
 #include <vector>
+#include <string>
 #include "Functions.hpp"
+
+Camera2D Functions::createCamera() {
+	Camera2D camera{ 0 };
+	camera.target = Vector2{ float(GetScreenWidth()) / 2, float(GetScreenHeight()) / 2 };
+	camera.offset = Vector2{ float(GetScreenWidth()) / 2, float(GetScreenHeight()) / 2 };
+	camera.rotation = 0.0f;
+	camera.zoom = 1.0f;
+	return camera;
+}
 
 Camera2D Functions::updateCamera(Camera2D camera) {
 	if (IsKeyDown(KEY_R)) {
@@ -9,10 +19,10 @@ Camera2D Functions::updateCamera(Camera2D camera) {
 		camera.zoom = 1.0f;
 	}
 
-	if (IsKeyDown(KEY_A))			camera.target = Vector2Add(camera.target, Vector2{ -50 / camera.zoom, 0 });
-	if (IsKeyDown(KEY_D))			camera.target = Vector2Add(camera.target, Vector2{ 50 / camera.zoom, 0 });
-	if (IsKeyDown(KEY_W))			camera.target = Vector2Add(camera.target, Vector2{ 0, -50 / camera.zoom });
-	if (IsKeyDown(KEY_S))			camera.target = Vector2Add(camera.target, Vector2{ 0, 50 / camera.zoom });
+	if (IsKeyDown(KEY_A))			camera.target = Vector2Add(camera.target, Vector2{ -50.0f / camera.zoom, 0.0f });
+	if (IsKeyDown(KEY_D))			camera.target = Vector2Add(camera.target, Vector2{ 50.0f / camera.zoom, 0.0f });
+	if (IsKeyDown(KEY_W))			camera.target = Vector2Add(camera.target, Vector2{ 0.0f, -50.0f / camera.zoom });
+	if (IsKeyDown(KEY_S))			camera.target = Vector2Add(camera.target, Vector2{ 0.0f, 50.0f / camera.zoom });
 	if (GetMouseWheelMove() > 0)	camera.zoom += 0.5f;
 	if (GetMouseWheelMove() < 0)	camera.zoom -= 0.5f;
 	return camera;
@@ -64,4 +74,12 @@ void Functions::drawGrid(int gridWidth, int gridHeight, std::vector<gridCell> gr
 		DrawRectangleLinesEx(gridCells[i].rect, 1, RAYWHITE);
 		DrawTexture(gridCells[i].texture, gridCells[i].rect.x, gridCells[i].rect.y, RAYWHITE);
 	}
+}
+
+void Functions::drawTextCenter(const char *text, int posY, int fontSize) {
+	DrawText(text, GetScreenWidth() / 2 - MeasureText(text, fontSize) / 2, posY, fontSize, RAYWHITE);
+}
+
+void Functions::drawStringCenterRect(std::string string, int fontSize, Rectangle rect) {
+	DrawText(string.c_str(), rect.x + rect.width / 2 - MeasureText(string.c_str(), fontSize) / 2, rect.y + rect.height / 2 - fontSize / 2, fontSize, DARKGRAY);
 }

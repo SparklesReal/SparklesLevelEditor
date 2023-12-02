@@ -14,4 +14,3 @@ A currently bad level editor made in C++. It was made for me to be able to creat
 * Better texture loading with custom names and more than ten textures
 
 # known bugs
-* pressing escape/exiting the program leads to it jumping into the next menu.
